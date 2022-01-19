@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;RCC/include/RCC_cofig.h&apos; to &apos;RCC_config.h&apos;" description="Rename resource &apos;RCC_cofig.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/RCC_cofig.h" name="RCC_config.h" stamp="1597519102776" updateReferences="true"/>
+</session>

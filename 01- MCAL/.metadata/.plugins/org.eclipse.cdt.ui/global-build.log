@@ -1,0 +1,25 @@
+04:49:03 **** Incremental Build of configuration Debug for project RCC ****
+make all 
+Building file: ../src/RCC_program.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"src/RCC_program.d" -MT"src/RCC_program.o" -c -o "src/RCC_program.o" "../src/RCC_program.c"
+In file included from ../src/RCC_program.c:10:0:
+../include/RCC_private.h:11:36: error: expected identifier or '(' before 'u32'
+ #define     RCC_CR              *((u32*)0x40021000)
+                                    ^
+../include/RCC_private.h:48:3: note: in expansion of macro 'RCC_CR'
+   RCC_CR = ((((RCC_CR >> 3) + RCC_HSI_TRIM_STEP) << 3) + (0x01));
+   ^~~~~~
+../include/RCC_private.h:11:41: error: expected ')' before numeric constant
+ #define     RCC_CR              *((u32*)0x40021000)
+                                         ^
+../include/RCC_private.h:48:3: note: in expansion of macro 'RCC_CR'
+   RCC_CR = ((((RCC_CR >> 3) + RCC_HSI_TRIM_STEP) << 3) + (0x01));
+   ^~~~~~
+../include/RCC_private.h:74:0: warning: "MUL_X_16" redefined
+ #define   MUL_X_16              15
+ 
+../include/RCC_private.h:73:0: note: this is the location of the previous definition
+ #define   MUL_X_16              14
+ 
+make: *** [src/subdir.mk:20: src/RCC_program.o] Error 1
