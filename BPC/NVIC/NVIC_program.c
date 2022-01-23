@@ -75,3 +75,16 @@ u8 MNVIC_u8GetActiveFlag(u8 Copy_u8IntNumber)                                   
   #endif
   return Local_u8Result;
 }
+
+void MNVIC_voidSetIntPriority(u8 Copy_u8IntNumber , u8 Copy_u8GroupPriority , u8 Copy_u8SubPriority , u8 Copy_u8PriGroup)      /* Interrupt priorityt control function */
+{
+  u8 Local_u8Priority = Copy_u8SubPriority | (Copy_u8GroupPriority <<( Copy_u8PriGroup - 3));
+  /*Internal/ core prepheral interrupt */
+
+  /*External prepheral interrupt */
+  if(Copy_u8IntNumber >= 0)
+  {
+    IPR[Copy_u8IntNumber] = Local_u8Priority << 4;
+  }
+  SCB_AIRCR = 0x05FA0000 | (Local_u8Priority << 8);
+}
