@@ -12,4 +12,8 @@
 #define   PB      0b0001
 #define   PC      0b0010
 
+/* Functions prototypes: */
+void MAFIO_voidConfigurateEXTILineBit(u8 Copy_u8Line , u8 Copy_u8Bit);
+
+
 #endif
