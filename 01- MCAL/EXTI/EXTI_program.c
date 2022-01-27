@@ -1,7 +1,7 @@
 /*******************************************************************************/
 /* Author : Mahmoud Adel *******************************************************/
 /* Date : 22 August 2019 *******************************************************/
-/* Version : V01         *******************************************************/
+/* Version : V02         *******************************************************/
 /*******************************************************************************/
 
 /* Inclusion part: */
@@ -40,12 +40,15 @@ void MEXTI_voidDisableEXTI(u8 Copy_u8Line)                                      
   CLR_BIT(EXTI-> IMR , Copy_u8Line);
 }
 
-void MEXTI_voidSwEXTI(u8 Copy_u8Line)                                           /* SW interrupt enable function: set pending flag by SW*/
+void MEXTI_voidSwEXTI(u8 Copy_u8Line , u8 Copy_u8Bit)                           /* SW interrupt enable function: set pending flag by SW*/
 {
-  SET_BIT(EXTI-> SWIER)
+  /* line interrupt enable */
+  SET_BIT(EXTI-> IMR , Copy_u8Line);
+  /* Settting 1 to desired SW interrupt */
+  SET_BIT(EXTI-> SWIER , Copy_u8Bit);
 }
 
-void MEXTI_voidTriggerMode(u8 Copy_u8Line , u8 Copy_u8Mode)                     /* Enable triggering modes on any line -  function*/
+void MEXTI_voidSetTriggerMode(u8 Copy_u8Line , u8 Copy_u8Mode)                  /* Enable triggering modes on any line -  function*/
 {
   switch (Copy_u8Mode) {
     case RISING   :   SET_BIT(EXTI -> PTSR , EXTI_LINE);                                      break;
@@ -53,4 +56,19 @@ void MEXTI_voidTriggerMode(u8 Copy_u8Line , u8 Copy_u8Mode)                     
     case ON_CHANGE:   SET_BIT(EXTI -> PTSR , EXTI_LINE);   SET_BIT(EXTI -> FTSR , EXTI_LINE); break;
     default       :   #error"Wrong triggering mode choise"                                    break;
   }
+}
+
+void MEXTI_viodSetCallBack(void (Copy_ptr*)(viod))                              /* CallBack function to set user's ISR function */
+{
+  EXTI0_CallBack = Copy_ptr;
+}
+
+
+/* ISR Handler*/
+void EXTI_IRQHandler(void)
+{
+  /* User ISR funcyion call */
+  EXTI0_CallBack();
+  /* clear pending flag*/
+  SET_BIT(EXTI->PR , 0);
 }
