@@ -86,5 +86,5 @@ void MNVIC_voidSetIntPriority(u8 Copy_u8IntNumber , u8 Copy_u8GroupPriority , u8
   {
     IPR[Copy_u8IntNumber] = Local_u8Priority << 4;
   }
-  SCB_AIRCR = 0x05FA0000 | (Local_u8Priority << 8);
+  SCB_AIRCR = 0x05FA0000 | (Local_u8Priority << 8);                             /* Foul as layered archeticture */
 }
