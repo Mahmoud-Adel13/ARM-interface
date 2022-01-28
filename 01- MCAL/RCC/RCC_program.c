@@ -53,7 +53,7 @@ void RCC_voidInitSysClock(void)                                                 
   #endif
 }
 
-void RCC_voidEnableClock(u8 Copy_u8BusId, u8 Copy_u8PerId)                      /*peripheral's-Clock-Activation function*/
+void RCC_voidEnableClock(u8 Copy_u8BusId, u8 Copy_u8PerId)                      /*peripheral's-Clock-Activation function*/                        
 {
   if(Copy_u8PerId <= 31)                                                        /*input validation*/
   {
@@ -71,7 +71,7 @@ void RCC_voidEnableClock(u8 Copy_u8BusId, u8 Copy_u8PerId)                      
   }
 }
 
-void RCC_voidDisableBusClock(u8 Copy_u8BusId , u8 Copy_u8PerId)                 /*Peripheral's-Clock-Activation function*/
+void RCC_voidDisableBusClock(u8 Copy_u8BusId , u8 Copy_u8PerId)                 /*Peripheral's-Clock-Activation function*/                              
 {
   if(Copy_u8PerId <= 31)                                                        /*Input validation*/
   {
@@ -88,7 +88,7 @@ void RCC_voidDisableBusClock(u8 Copy_u8BusId , u8 Copy_u8PerId)                 
   }
 }
 
-void RCC_voidCssEnable(void)                                                    /*Clock-security-system Activation function*/
+void RCC_voidCssEnable(void)                                                    /*Clock-security-system Activation function*/                             
 {
   switch (RCC_CSS) {
     case RCC_CSS_ON  : SET_BIT(RCC_CR , 19);    break;                          /*Enabling  CSS*/

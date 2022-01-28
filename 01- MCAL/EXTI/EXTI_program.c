@@ -65,7 +65,7 @@ void MEXTI_viodSetCallBack(void (Copy_ptr*)(viod))                              
 
 
 /* ISR Handler*/
-void EXTI_IRQHandler(void)
+void EXTI0_IRQHandler(void)
 {
   /* User ISR funcyion call */
   EXTI0_CallBack();

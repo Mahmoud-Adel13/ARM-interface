@@ -22,6 +22,11 @@
 #define   MINCE_TRIM    1
 
 
+/* Functions prototypes: */
+void RCC_voidInitSysClock(void);                                                /*Sytem-clock-choise in action/ pre-build configuration version*/
+void RCC_voidEnableClock(u8 Copy_u8BusId, u8 Copy_u8PerId);                     /*peripheral's-Clock-Activation function*/
+void RCC_voidDisableBusClock(u8 Copy_u8BusId , u8 Copy_u8PerId);                /*Peripheral's-Clock-Activation function*/
+void RCC_voidCssEnable(void);                                                   /*Clock-security-system Activation function*/
 
 
 
