@@ -15,18 +15,18 @@
 
 
 /*Code part: */
-void GPIO_voidInit(u8 Copy_u8Port)                                              /*GPIO peripheral Enable */
+void MGPIO_voidInit(u8 Copy_u8Port)                                             /*GPIO peripheral Enable */
 {
   #if Copy_u8Port == GPIO_PORTA
-    RCC_voidEnableClock(APB2 , 2);
+    MRCC_voidEnableClock(APB2 , 2);
   #elif Copy_u8Port == GPIO_PORTB
-    RCC_voidEnableClock(APB2 , 3);
+    MRCC_voidEnableClock(APB2 , 3);
   #elif Copy_u8Port == GPIO_PORTC
-    RCC_voidEnableClock(APB2 , 4);
+    MRCC_voidEnableClock(APB2 , 4);
   #endif
 }
 
-void GPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)        /*Pin-Mode configuration function */
+void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)       /*Pin-Mode configuration function */
 {
   #if Copy_u8Port == GPIO_PORTA
     #if Copy_u8Pin > 7
@@ -81,7 +81,7 @@ void GPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)        
   #endif
 }
 
-void GPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value)     /*Set pin-output value function */
+void MGPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value)    /*Set pin-output value function */
 {
   #if Copy_u8Port == GPIO_PORTA
     #if Copy_u8Value == HIGH
@@ -110,7 +110,7 @@ void GPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value)     
   #endif
 }
 
-u8 GPIO_u8GetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin)                           /*Get pin-input value function */
+u8 MGPIO_u8GetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin)                          /*Get pin-input value function */
 {
   u8 u8Value = 0;
   #if Copy_u8Port == GPIO_PORTA
@@ -123,7 +123,7 @@ u8 GPIO_u8GetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin)                           
   return u8Value;
 }
 
-void GPIO_voidSetPortDir(u8 Copy_u8Port , u8 Copy_u8Position , u32 Copy_u32Mode)  /*Port-Mode configuration function */
+void MGPIO_voidSetPortDir(u8 Copy_u8Port , u8 Copy_u8Position , u32 Copy_u32Mode)  /*Port-Mode configuration function */
 {
   #if Copy_u8Port == GPIO_PORTA
     #if Copy_u8Position == LOW
@@ -146,7 +146,7 @@ void GPIO_voidSetPortDir(u8 Copy_u8Port , u8 Copy_u8Position , u32 Copy_u32Mode)
   #endif
 }
 
-void GPIO_voidSetPortValue(u8 Copy_u8Port , u32 Copy_u32Value )                 /*Set Port-output value function */
+void MGPIO_voidSetPortValue(u8 Copy_u8Port , u32 Copy_u32Value )                /*Set Port-output value function */
 {
   /*For Port A */
   #if Copy_u8Port == GPIO_PORTA
@@ -178,7 +178,7 @@ void GPIO_voidSetPortValue(u8 Copy_u8Port , u32 Copy_u32Value )                 
   #endif
 }
 
-u32 GPIO_u32GetPortValue(u8 Copy_u8Port)                                        /*Get Port-input value function */
+u32 MGPIO_u32GetPortValue(u8 Copy_u8Port)                                       /*Get Port-input value function */
 {
   u32 u32PortValue;
   /*For Port A */

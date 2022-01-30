@@ -8,9 +8,9 @@
 #include  "BIT_MATH.h"
 #include  "STD_TYPES.h"
 
-#include  "MSTK_interface.h"
-#include  "MSTK_private.h"
-#include  "MSTK_config.h"
+#include  "STK_interface.h"
+#include  "STK_private.h"
+#include  "STK_config.h"
 
 /* Global variable */
 u8 Global_u8PeriodicState;

@@ -8,9 +8,9 @@
 #include "BIT_MATH.h"
 #include "STD_TYPES.h"
 
-#include "MAFIO_interface.h"
-#include "MAFIO_private.h"
-#include "MAFIO_config.h"
+#include "AFIO_interface.h"
+#include "AFIO_private.h"
+#include "AFIO_config.h"
 
 
 /* Functions definition part: */

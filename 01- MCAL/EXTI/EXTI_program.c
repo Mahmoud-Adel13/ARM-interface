@@ -8,9 +8,9 @@
 #include "BIT_MATH.h"
 #include "STD_TYPES.h"
 
-#include "MEXTI_interface.h"
-#include "MEXTI_private.h"
-#include "MEXTI_config.h"
+#include "EXTI_interface.h"
+#include "EXTI_private.h"
+#include "EXTI_config.h"
 
 
 /* Functions definition part: */
