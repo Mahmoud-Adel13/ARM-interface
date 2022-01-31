@@ -17,31 +17,32 @@ void main(void)
 {
   /* RCC initialization */
   RCC_voidInitSysClock();
-  /* GPIOA clock activation */
-  GPIO_voidInit(GPIO_PORTA);
-  /* EXTI initialization */
-  MEXTI_voidInit();
-  /* SysTick initialization */
-  MSTK_voidInit();
-  /* AFIO Rcc clock activation */
-  RCC_voidEnableClock(APB2 , 0);
+  GPIO_voidInit(GPIO_PORTA);                                                    /* GPIOA clock activation */
+  RCC_voidEnableClock(APB2 , 0);                                                /* AFIO Rcc clock activation */
+
   /* GPIO directions */
   GPIO_voidSetPinDir(GPIO_PORTA , 0 , INPUT_PUSHPULL_PIN);                      /* Set A0 as input with pull up resistor */
   GPIO_voidSetPinDir(GPIO_PORTA , 2 , OUTPUT_GP_PUSHPULL_PIN_2MHZ);             /* Set A2 as output of 2 MHZ */
+
+  /* EXTI initialization */
+  MEXTI_viodSetCallBack(PressBottun);                                           /* Set CallBack function */
+  MEXTI_voidInit();                                                             /* A0 triggered on falling edge */
   /* EXTI0 enable */
   MEXTI_voidEnableEXTI(LINE0);                                                  /* enable EXTI0 on line 0*/
   MEXTI_voidSetTriggerMode( LINE0 , RISING);                                    /* set rising edge trigger for EXTI0 */
+  MAFIO_voidConfigurateEXTILineBit(LINE0 , PA);                                 /* Choose A0 as EXTI0 pin */
   MNVIC_voidSetIntPriority(6 , 2 , 1 , PRIGROUP4);                              /* Set priority for EXTI0 */
   MNVIC_voidEnableInterrupt(6);                                                 /* Enable EXTI0 */
-  /* pin choise for EXTI0 */
-  MAFIO_voidConfigurateEXTILineBit(LINE0 , PA);                                 /* Choose A0 as EXTI0 pin */
+
+  /* SysTick initialization */
+  MSTK_voidInit();
 
   //MNVIC_voidSetPendingFlag(6);
 
-  /* Set CallBack function */
-  MEXTI_viodSetCallBack(PressBottun);
+  while (1)
+  {
 
-  while (1);
+  }
 }
 
 
