@@ -14,7 +14,7 @@
 
 /* External interrupt triggering mode configuration*/
 /*                                    options: RISING, FALING, ON_CHANGE       */
-#define     EXTI_MODE       RISING
+#define     EXTI_MODE       FALLING
 
 
 #endif

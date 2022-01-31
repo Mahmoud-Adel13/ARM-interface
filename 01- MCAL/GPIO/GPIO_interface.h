@@ -64,13 +64,13 @@
 
 
 /*functions prototypes: */
-void MGPIO_voidInit();                                                           /*GPIO peripheral Enable */
-void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode);       /*Pin-Mode configuration function */
-void MGPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value);    /*Set pin-output value function */
-void MGPIO_voidGetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin);                      /*Get pin-input value function */
+void MGPIO_voidInit(u8 Copy_u8Port);                                            /*GPIO peripheral Enable */
+void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode);      /*Pin-Mode configuration function */
+void MGPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value);   /*Set pin-output value function */
+void MGPIO_voidGetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin);                     /*Get pin-input value function */
 void MGPIO_voidSetPortDir(u8 Copy_u8Port , u8 Copy_u8Position , u32 Copy_u32Mode); /*Port-Mode configuration function */
-void MGPIO_voidSetPortValue(u8 Copy_u8Port , u32 Copy_u32Value );                /*Set Port-output value function */
-u32 MGPIO_u32GetPortValue(u8 Copy_u8Port);                                       /*Get Port-input value function */
+void MGPIO_voidSetPortValue(u8 Copy_u8Port , u32 Copy_u32Value );               /*Set Port-output value function */
+u32 MGPIO_u32GetPortValue(u8 Copy_u8Port);                                      /*Get Port-input value function */
 
 
 #endif

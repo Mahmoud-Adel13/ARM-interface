@@ -21,6 +21,13 @@
 #define   PLUS_TRIM     0
 #define   MINCE_TRIM    1
 
+/* RCC Enable prepherals */
+#define   AFIO          0
+#define   GPIO_PORTA    2
+#define   GPIO_PORTB    3
+#define   GPIO_PORTC    4
+
+
 
 /* Functions prototypes: */
 void MRCC_voidInitSysClock(void);                                                /*Sytem-clock-choise in action/ pre-build configuration version*/

@@ -9,7 +9,7 @@
 
 /* Clock src configuration: */
 /*           options: AHB or AHB_CLOCK_DIV_8 */
-#define   STK_CLOCK_SRC       AHB_CLOCK
+#define   STK_CLOCK_SRC       AHB_CLOCK_DIV_8
 
 
 

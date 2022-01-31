@@ -48,15 +48,19 @@ void MSTk_voidSetBusyWait(u32 Copy_u32Ticks)
 
 void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (viod))
 {
+  /* Disable timer */
+  CLR_BIT(MSTK->CTRL , 0);
   /* Clear Value Register */
 	STK-> VAL  = 0 ;
   /* Set interval duration */
   STK-> LOAD = Copy_u32Ticks - 1;
+  /* SysTick enable / start */
+  SET_BIT(CTRL , 0);
+  /* Save callback */
+  MSTK_Callback = Copy_ptr;                                                     /* Callback function assignment */
   /* Enable SysTick interrupt: */
   SET_BIT(CTRL , 1);
-  /* SysTick enable */
-  SET_BIT(CTRL , 0);
-  MSTK_Callback = Copy_ptr;                                                     /* Callback function assignment */
+  /* Periodic flag state */
   Global_u8PeriodicState = 0;
 }
 

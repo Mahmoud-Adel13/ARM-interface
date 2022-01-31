@@ -15,6 +15,13 @@
 #define     PRIGROUP6             0b110                                         /* 1 bits of IPR for group priority and 3 bits for subgroup priority*/
 #define     PRIGROUP7             0b111                                         /* 0 bits of IPR for group priority and 4 bits for subgroup priority*/
 
+/* Enable interrupt macros */
+#define     EXTI0     6
+#define     EXTI1     7
+#define     EXTI2     8
+#define     EXTI3     9
+#define     EXTI4     10
+
 
 /* Functions prototypes: */
 void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber);
