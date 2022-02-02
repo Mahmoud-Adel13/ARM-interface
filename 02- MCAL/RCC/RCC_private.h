@@ -1,13 +1,14 @@
 /*******************************************************************************/
-/* Author: Mahmoud Adel                                                        */
-/* Date: 12 Augest 2020                                                        */
-/* Version: V01                                                                */
+/* Author: Mahmoud Adel  *******************************************************/
+/* Date: 12 August 2020  *******************************************************/
+/* Version: V01          *******************************************************/
+/*******************************************************************************/
 
 #ifndef RCC_private_H
 #define RCC_private_H
 
 
-/* Register Difinition */
+/* Register Definition */
 #define     RCC_CR              *((u32*)0x40021000)
 #define     RCC_CFGR            *((u32*)0x40021004)
 #define     RCC_CIR             *((u32*)0x40021008)
@@ -44,11 +45,11 @@
 #define    SIXTEEN            16
 
 /*RCC_HSI_TRIM configuration: */
-#if RCC_HSI_TRIM == 0
-  RCC_CR = ((((RCC_CR >> 3) + RCC_HSI_TRIM_STEP) << 3) + (0x01));
+/*#if RCC_HSI_TRIM == 0
+  RCC_CR = (((((RCC_CR) >> 3) + RCC_HSI_TRIM_STEP) << 3) + (0x01));
 #else
-  RCC_CR = ((((RCC_CR >> 3) - RCC_HSI_TRIM_STEP) << 3) + (0x01));
-#endif
+  RCC_CR = (((((RCC_CR) >> 3) - RCC_HSI_TRIM_STEP) << 3) + (0x01));
+#endif*/
 
 /*RCC_PLL_INPUT options: */
 #define    RCC_PLL_IN_HSI_DIV_2     0
