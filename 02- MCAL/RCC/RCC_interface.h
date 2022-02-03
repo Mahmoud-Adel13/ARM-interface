@@ -27,6 +27,7 @@
 #define   GPIO_PORTA    2
 #define   GPIO_PORTB    3
 #define   GPIO_PORTC    4
+#define   DMA1          0
 
 
 
