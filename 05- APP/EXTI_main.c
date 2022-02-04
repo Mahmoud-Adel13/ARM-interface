@@ -12,17 +12,18 @@
 #include "EXTI_Interface.h"
 #include "AFIO_Interface.h"
 
+void PressBottun(void);
 
 void main(void)
 {
   /* RCC initialization */
-  RCC_voidInitSysClock();
-  GPIO_voidInit(GPIO_PORTA);                                                    /* GPIOA clock activation */
-  RCC_voidEnableClock(APB2 , 0);                                                /* AFIO Rcc clock activation */
+  MRCC_voidInitSysClock();
+  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA clock activation */
+  MRCC_voidEnableClock(APB2 , 0);                                               /* AFIO Rcc clock activation */
 
   /* GPIO directions */
-  GPIO_voidSetPinDir(GPIO_PORTA , 0 , INPUT_PUSHPULL_PIN);                      /* Set A0 as input with pull up resistor */
-  GPIO_voidSetPinDir(GPIO_PORTA , 2 , OUTPUT_GP_PUSHPULL_PIN_2MHZ);             /* Set A2 as output of 2 MHZ */
+  MGPIO_voidSetPinDir(GPIO_PORTA , 0 , INPUT_PUSHPULL_PIN);                     /* Set A0 as input with pull up resistor */
+  MGPIO_voidSetPinDir(GPIO_PORTA , 2 , OUTPUT_GP_PUSHPULL_PIN_2MHZ);            /* Set A2 as output of 2 MHZ */
 
   /* EXTI initialization */
   MEXTI_viodSetCallBack(PressBottun);                                           /* Set CallBack function */
@@ -50,11 +51,11 @@ void main(void)
 void PressBottun(void)
 {
   /* SET A2 as High output */
-  GPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN_2 , HIGH);
+  MGPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN_2 , HIGH);
   /* Delay for 1 sec */
   MSTk_voidSetBusyWait(1000000);
   /* SET A2 as Low output */
-  GPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN_2 , LOW);
+  MGPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN_2 , LOW);
   /* Delay for 1 sec */
   MSTk_voidSetBusyWait(1000000);
 }

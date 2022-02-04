@@ -46,7 +46,7 @@ void MSTk_voidSetBusyWait(u32 Copy_u32Ticks)
   while (Copy_u32Ticks > 0) {}                                                  /* uP hold dela time */
 }
 
-void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (viod))
+void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (void))
 {
   /* Disable timer */
   CLR_BIT(STK->CTRL , 0);
@@ -64,7 +64,7 @@ void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (viod))
   Global_u8PeriodicState = 0;
 }
 
-void MSTK_voidSetIntervalPeriodic(u32 Copy_u32Ticks , void (*Copy_ptr) (viod))
+void MSTK_voidSetIntervalPeriodic(u32 Copy_u32Ticks , void (*Copy_ptr) (void))
 {
   /* Clear Value Register */
 	STK-> VALUE  = 0 ;

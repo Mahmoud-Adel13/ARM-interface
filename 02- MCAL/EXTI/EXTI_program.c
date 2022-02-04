@@ -24,7 +24,7 @@ void MEXTI_voidInit()                                                           
     SET_BIT(EXTI -> PTSR , EXTI_LINE);
     SET_BIT(EXTI -> FTSR , EXTI_LINE);
   #else
-    #error"Wrong triggering mode choise"
+    //#error"Wrong triggering mode choise"
   #endif
   /*Disable interrupts on chosen line */
   CLR_BIT(EXTI-> IMR , EXTI_LINE);
@@ -32,7 +32,7 @@ void MEXTI_voidInit()                                                           
 
 void MEXTI_voidEnableEXTI(u8 Copy_u8Line)                                       /* Enable interrupt line function */
 {
-  SET_BIT(EXTI-> IMR , Copy_u8Line);
+  SET_BIT(EXTI -> IMR , Copy_u8Line);
 }
 
 void MEXTI_voidDisableEXTI(u8 Copy_u8Line)                                      /* Disable interrupt line function */
@@ -51,14 +51,14 @@ void MEXTI_voidSwEXTI(u8 Copy_u8Line , u8 Copy_u8Bit)                           
 void MEXTI_voidSetTriggerMode(u8 Copy_u8Line , u8 Copy_u8Mode)                  /* Enable triggering modes on any line -  function*/
 {
   switch (Copy_u8Mode) {
-    case RISING   :   SET_BIT(EXTI -> PTSR , EXTI_LINE);                                      break;
+    case RISING   :   SET_BIT(EXTI -> RTSR , EXTI_LINE);                                      break;
     case FALLING  :   SET_BIT(EXTI -> FTSR , EXTI_LINE);                                      break;
-    case ON_CHANGE:   SET_BIT(EXTI -> PTSR , EXTI_LINE);   SET_BIT(EXTI -> FTSR , EXTI_LINE); break;
-    default       :   #error"Wrong triggering mode choise"                                    break;
+    case ON_CHANGE:   SET_BIT(EXTI -> RTSR , EXTI_LINE);   SET_BIT(EXTI -> FTSR , EXTI_LINE); break;
+    default       :   /*#error"Wrong triggering mode choise" */                               break;
   }
 }
 
-void MEXTI_viodSetCallBack(void (Copy_ptr*)(viod))                              /* CallBack function to set user's ISR function */
+void MEXTI_viodSetCallBack(void (*Copy_ptr)(void))                              /* CallBack function to set user's ISR function */
 {
   EXTI0_CallBack = Copy_ptr;
 }

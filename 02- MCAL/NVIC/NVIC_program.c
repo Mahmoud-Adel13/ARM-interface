@@ -16,14 +16,17 @@
 /* Functions definition part: */
 void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber)                             /* External interrupts enable function */
 {
-  #if Copy_u8IntNumber <= 31
+  if (Copy_u8IntNumber <= 31)
     NVIC_ISER0 = (1 << Copy_u8IntNumber);
-  #elif Copy_u8IntNumber <= 59
-    Copy_u8IntNumber -= 32;
-    NVIC_ISER1 = (1 << Copy_u8IntNumber);
-  #else
-    /* return Error*/
-  #endif
+  else if (Copy_u8IntNumber <= 59)
+  {
+	  Copy_u8IntNumber -= 32;
+	  NVIC_ISER1 = (1 << Copy_u8IntNumber);
+  }
+  else
+  {
+	  /* return Error*/
+  }
 }
 
 void MNVIC_voidDisableInterrupt(u8 Copy_u8IntNumber)                            /* External interrupts disable function */
@@ -84,7 +87,7 @@ void MNVIC_voidSetIntPriority(u8 Copy_u8IntNumber , u8 Copy_u8GroupPriority , u8
   /*External prepheral interrupt */
   if(Copy_u8IntNumber >= 0)
   {
-    IPR[Copy_u8IntNumber] = Local_u8Priority << 4;
+    NVIC_IPR[Copy_u8IntNumber] = Local_u8Priority << 4;
   }
   SCB_AIRCR = 0x05FA0000 | (Local_u8Priority << 8);                             /* Foul as layered archeticture */
 }

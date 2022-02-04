@@ -17,8 +17,8 @@ typedef union
 
 
 /* Functions prototype: */
-void SOS_viodCreateTask(u8 Copy_u8Priority , u16 Copy_u16Periodicity , viod (*ptr)(viod) , u8 Copy_u8FirstDelay , state Copy_state);
-viod SOS_viodOSStart(viod);
+void SOS_viodCreateTask(u8 Copy_u8Priority , u16 Copy_u16Periodicity , void (*ptr)(void) , u8 Copy_u8FirstDelay , state Copy_u8state);
+void SOS_viodOSStart(void);
 void SOS_voidKillTask(u8 Copy_u8Priority);
 void SOS_voidPauseTask(u8 Copy_u8Priority);
 void SOS_voidResumeTask(u8 Copy_u8Priority);

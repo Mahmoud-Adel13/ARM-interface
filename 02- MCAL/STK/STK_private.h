@@ -15,7 +15,7 @@ typedef struct{
   volatile u32   CALIB;
 }STK_t;
 
-#define  STk  ((volatile STK_t*) 0xE000E010)
+#define  STK  ((volatile STK_t*) 0xE000E010)
 
 /* Global variable*/
 void (*MSTK_Callback)(void);

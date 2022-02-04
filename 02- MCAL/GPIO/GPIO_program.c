@@ -15,17 +15,6 @@
 
 
 /*Code part: */
-void MGPIO_voidInit(u8 Copy_u8Port)                                             /*GPIO peripheral Enable */
-{
-  #if Copy_u8Port == GPIO_PORTA
-    MRCC_voidEnableClock(APB2 , 2);
-  #elif Copy_u8Port == GPIO_PORTB
-    MRCC_voidEnableClock(APB2 , 3);
-  #elif Copy_u8Port == GPIO_PORTC
-    MRCC_voidEnableClock(APB2 , 4);
-  #endif
-}
-
 void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)       /*Pin-Mode configuration function */
 {
   #if Copy_u8Port == GPIO_PORTA

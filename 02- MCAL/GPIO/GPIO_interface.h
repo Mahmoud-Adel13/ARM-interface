@@ -64,7 +64,6 @@
 
 
 /*functions prototypes: */
-void MGPIO_voidInit(u8 Copy_u8Port);                                            /*GPIO peripheral Enable */
 void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode);      /*Pin-Mode configuration function */
 void MGPIO_voidSetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Value);   /*Set pin-output value function */
 void MGPIO_voidGetPinValue(u8 Copy_u8Port , u8 Copy_u8Pin);                     /*Get pin-input value function */

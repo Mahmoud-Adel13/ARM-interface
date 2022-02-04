@@ -8,6 +8,7 @@
 #define MEXTI_PRIVATE_H
 
 /* Global variables*/
+#define 	NULL 		(*void)0
 static void (*EXTI0_CallBack)(void) = NULL;
 
 /* Register definition using struct and pointer: */

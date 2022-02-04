@@ -22,24 +22,27 @@ void MAFIO_voidConfigurateEXTILineBit(u8 Copy_u8Line , u8 Copy_u8Bit)
     AFIO-> EXTICR1 &= ~((0b1111) << (Copy_u8Line * 4));
     AFIO-> EXTICR1 |= ((Copy_u8Bit) << (Copy_u8Line * 4));
   }
-  elif (Copy_u8Line < 8)
+  else if (Copy_u8Line < 8)
   {
     Copy_u8Line -= 4;
     AFIO-> EXTICR2 &= ~((0b1111) << (Copy_u8Line * 4));
     AFIO-> EXTICR2 |= ((Copy_u8Bit) << (Copy_u8Line * 4));
   }
-  elif (Copy_u8Line < 12)
+  else if (Copy_u8Line < 12)
   {
     Copy_u8Line -= 8;
     AFIO-> EXTICR3 &= ~((0b1111) << (Copy_u8Line * 4));
     AFIO-> EXTICR3 |= ((Copy_u8Bit) << (Copy_u8Line * 4));
   }
-  elif (Copy_u8Line < 16)
+  else if (Copy_u8Line < 16)
   {
     Copy_u8Line -= 12;
     AFIO-> EXTICR4 &= ~((0b1111) << (Copy_u8Line * 4));
     AFIO-> EXTICR4 |= ((Copy_u8Bit) << (Copy_u8Line * 4));
   }
   else
-    #error"Wrong line entry"
+  {
+	//#error"Wrong line entry"
+  }
+
 }

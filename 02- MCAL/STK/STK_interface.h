@@ -15,8 +15,8 @@
 /* Functions prototypes: */
 void MSTK_voidInit(void);
 void MSTk_voidSetBusyWait(u32 Copy_u32Ticks);
-void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (viod));
-void MSTK_voidSetIntervalPeriodic(u32 Copy_u32Ticks , void (*Copy_ptr) (viod));
+void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (void));
+void MSTK_voidSetIntervalPeriodic(u32 Copy_u32Ticks , void (*Copy_ptr) (void));
 void MSTK_voidStopInterval(void);
 u32  MSTK_u32FGetElapsedTime(void);
 u32  MSTK_u32FGetRemainingTime(void);
