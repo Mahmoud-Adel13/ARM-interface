@@ -13,7 +13,7 @@
 #include "GPIO_interface.h"
 #include "STK_interface.h"
 #include "STK_interface.h"
-/* Sercices layer */
+/* Services layer */
 #include "OS_interface.h"
 
 /* Functions prototypes */
@@ -23,7 +23,7 @@ void LED3(void);
 
 
 /* Main function */
-viod main(viod)
+void main(void)
 {
   /**    Initialization     **/
   /* RCC initialization */
@@ -35,17 +35,14 @@ viod main(viod)
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_2 , OUTPUT_AF_PUSHPULL_PIN_2MHZ);
 
   /* Tasks creation */
-  SOS_viodCreateTask(0 , 100 , LED1);                                           /* Task 0 creation */
-  SOS_viodCreateTask(1 , 200 , LED2);                                           /* Task 1 creation */
-  SOS_viodCreateTask(2 , 300 , LED3);                                           /* Task 2 creation */
+  SOS_viodCreateTask(0 , 100 , LED1, 1 , Task_Ready);                                           /* Task 0 creation */
+  SOS_viodCreateTask(1 , 200 , LED2, 1 , Task_Ready);                                           /* Task 1 creation */
+  SOS_viodCreateTask(2 , 300 , LED3, 1,  Task_Ready);                                           /* Task 2 creation */
 
   /* Start OS */
   SOS_viodOSStart();
 
-  While(1)
-  {
-
-  }
+  while(1);
 }
 
 

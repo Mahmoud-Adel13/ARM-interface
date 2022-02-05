@@ -9,12 +9,11 @@
 #define OS_INTERFACE_H
 
 /* Task state union */
-typedef union
+typedef enum
 {
-  u8 Task_Ready;
-  u8 Task_Suspended;
+  Task_Ready,
+  Task_Suspended
 }state;
-
 
 /* Functions prototype: */
 void SOS_viodCreateTask(u8 Copy_u8Priority , u16 Copy_u16Periodicity , void (*ptr)(void) , u8 Copy_u8FirstDelay , state Copy_u8state);
