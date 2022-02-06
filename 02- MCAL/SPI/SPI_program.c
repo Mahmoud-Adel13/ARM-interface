@@ -60,8 +60,10 @@ void MSOI1_voidSendReceiveSynch(u8 Copy_u8DataToSend , u8 *Copy_u8VariableToRece
 }
 
 /* Send-Receive Asynch function */
-void MSOI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*CallBack) (u8))
+void MSPI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*Copy_CallBack) (u8))
 {
+  /* MSPI_CallBack  assignment */
+  MSPI_CallBack = Copy_CallBack;
   /* set slave select to LOW */
   MGPIO_voidGetPinValue(SLAVE_SELECT_PIN , LOW);
   /* Send data*/
@@ -72,5 +74,5 @@ void MSOI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*CallBack) (u8))
 /**     ISR Handler      **/
 void MSPI1_IRQHandler(void)
 {
-  CallBack(SPI1->DR);
+  MSPI1_CallBack(SPI1->DR);
 }

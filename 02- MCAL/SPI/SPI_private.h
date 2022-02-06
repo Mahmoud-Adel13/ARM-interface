@@ -63,6 +63,7 @@ typedef struct
 #define   READ_WRITE       0
 #define   WRITE_READ       1
 
-/* */
+/*  CallBack   variable */
+void (*MSPI1_CallBack) (u8);
 
 #endif
