@@ -20,7 +20,7 @@ void main(void)
 {
   /**   RCC initialization     **/
   MRCC_voidInitSysClock();                                                      /* RCC input clock as HSE_CRY = 8MHZ */
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA clock activation */
+  MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* GPIOA clock activation */
   /* Pin direxction configuration */
   MGPIO_voidSetPinDir(STP_SERIAL_DATA , OUTPUT_GP_PUSHPULL_PIN_2MHZ);
   MGPIO_voidSetPinDir(STP_SHIFT_CLOCK , OUTPUT_GP_PUSHPULL_PIN_2MHZ);

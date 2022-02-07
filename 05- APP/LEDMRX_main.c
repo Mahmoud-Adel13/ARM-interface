@@ -19,8 +19,8 @@ void main(void)
 {
   /* Initialization for prepherals */
   MRCC_voidInitSysClock();                                                      /* Intialize system clock */
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA enable clock */
-  MRCC_voidEnableClock(APB2 , GPIO_PORTB);                                      /* GPIOB enable clock */
+  MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* GPIOA enable clock */
+  MRCC_voidEnableClock(EN_GPIO_PORTB);                                          /* GPIOB enable clock */
   MSTK_voidInit();                                                              /* Systick Initialization */
   HLEDMRX_voidInit();                                                           /* Led matrix Initialization */
 

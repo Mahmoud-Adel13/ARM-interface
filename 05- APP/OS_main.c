@@ -28,7 +28,7 @@ void main(void)
   /**    Initialization     **/
   /* RCC initialization */
   MRCC_voidInitSysClock();                                                      /* HSE_CRY / 8 = 1MHZ */
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA active clock */
+  MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* GPIOA active clock */
   /* GPIO directions */
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_0 , OUTPUT_AF_PUSHPULL_PIN_2MHZ);
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_1 , OUTPUT_AF_PUSHPULL_PIN_2MHZ);

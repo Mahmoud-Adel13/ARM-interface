@@ -23,12 +23,13 @@
 #define   MINCE_TRIM    1
 
 /* RCC Enable prepherals */
-#define   AFIO          0
-#define   GPIO_PORTA    2
-#define   GPIO_PORTB    3
-#define   GPIO_PORTC    4
-#define   DMA1          0
-
+#define   EN_AFIO          APB2,0
+#define   EN_GPIO_PORTA    APB2,2
+#define   EN_GPIO_PORTB    APB2,3
+#define   EN_GPIO_PORTC    APB2,4
+#define   EN_DMA1          AHB,0
+#define   EN_SPI1          APB2,12
+#define   EN_USART1        APB2,14
 
 
 /* Functions prototypes: */

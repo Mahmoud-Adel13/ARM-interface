@@ -26,9 +26,9 @@ void main(void)
 {
   /* RCC Initialization */
   MRCC_voidInitSysClock();                                                      /* HSE crystal = 8 MHZ*/
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* Enable GPIOA clock */
-  MRCC_voidEnableClock(APB2 , GPIO_PORTB);                                      /* Enable GPIOB clock */
-  MRCC_voidEnableClock(APB2 , AFIO);                                            /* Enable AFIO  clock */
+  MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* Enable GPIOA clock */
+  MRCC_voidEnableClock(EN_GPIO_PORTB);                                          /* Enable GPIOB clock */
+  MRCC_voidEnableClock(EN_AFIO);                                                /* Enable AFIO  clock */
 
   /*  Pin directions */
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_0 , INPUT_FLOATING_PIN);            /* A0 as input floating used with sensor */

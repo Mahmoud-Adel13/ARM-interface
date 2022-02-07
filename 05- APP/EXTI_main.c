@@ -18,7 +18,7 @@ void main(void)
 {
   /* RCC initialization */
   MRCC_voidInitSysClock();
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA clock activation */
+  MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* GPIOA clock activation */
   MRCC_voidEnableClock(APB2 , 0);                                               /* AFIO Rcc clock activation */
 
   /* GPIO directions */

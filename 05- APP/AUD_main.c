@@ -22,7 +22,7 @@ void main(void)
 {
 	/** RCC initialization **/
 	MRCC_voidInitSysClock();
-  MRCC_voidEnableClock(APB2 , GPIO_PORTA);                                      /* GPIOA clock enable */
+  MRCC_voidEnableClock( EN_GPIO_PORTA);			                                    /* GPIOA clock enable */
 
   /* Pin directions */
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_0 , OUTPUT_GP_PUSHPULL_PIN_2MHZ);
