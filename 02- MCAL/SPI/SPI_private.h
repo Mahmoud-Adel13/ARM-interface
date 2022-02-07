@@ -55,9 +55,13 @@ typedef struct
 #define   SEND_RECV        0
 #define   RECV_ONLY        1
 
-/* Slave select mode */
+/* Slave select managment */
 #define   BY_HW            0
 #define   BY_SW            1
+
+/* Internal slave select */
+#define   INT_SLAVE        0
+#define   INT_MASTER       1
 
 /* Clock phase */
 #define   READ_WRITE       0

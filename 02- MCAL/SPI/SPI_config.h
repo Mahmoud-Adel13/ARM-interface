@@ -40,7 +40,10 @@
 
 /* Slave select mode */
 /* Options:  BY_SW  or  BY_HW */
-#define   SLAVE_SELECT        BY_SW
+#define   SLAVE_MANAGE        BY_SW                                             /* To choose SSM bit value */
+#if   SLAVE_MANAGE == BY_SW
+  #define   INT_SLAVE_SELECT    INT_MASTER                                      /* Set SSI bit value */
+#endif
 
 /* Clock phase */
 /* Options:  READ_WRITE   or  WRITE_READ  */

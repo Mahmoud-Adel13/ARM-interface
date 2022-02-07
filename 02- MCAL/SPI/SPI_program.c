@@ -30,8 +30,10 @@ void MSPI1_voidInit(void)
   SPI1->CR1 |= (BAUD_RATE_PRE << 3);
   /* Data order */
   SPI1->CR1 |= (DATA_ORDER << 7);
-  /* Slave select mode */
-  SPI1->CR1 |= (SLAVE_SELECT << 9);
+  /* Slave select managment: BY_SW or BY_HW */
+  SPI1->CR1 |= (SLAVE_MANAGE << 9);
+  /* Internal slave select (SSI) */
+  SPI1->CR1 |= (INT_SLAVE_SELECT << 8);
   /* RX mode */
   SPI1->CR1 |= (RX_MODE << 10);
   /* Data frame format */
