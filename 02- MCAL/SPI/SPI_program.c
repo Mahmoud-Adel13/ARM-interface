@@ -47,18 +47,18 @@ void MSPI1_voidInit(void)
 }
 
 /* Send-Receive Synch function */
-void MSOI1_voidSendReceiveSynch(u8 Copy_u8DataToSend , u8 *Copy_u8VariableToReceive)
+void MSPI1_voidSendReceiveSynch(u8 Copy_u8DataToSend , u8 *Copy_u8VariableToReceive)
 {
   /* set slave select to LOW */
-  MGPIO_voidGetPinValue(SLAVE_SELECT_PIN , LOW);
+  MGPIO_voidSetPinValue(SLAVE_SELECT_PIN , LOW);
   /* Send data*/
   SPI1->DR = Copy_u8DataToSend;
   /* Wait for Busy flag */
   while(GET_BIT(SPI1->SR , 6) == 1);
   /* Return to the receive variable */
-  Copy_u8VariableToReceive = SPI1->DR;
+  Copy_u8VariableToReceive = (u8)SPI1->DR;
   /* set slave select to HIGH */
-  MGPIO_voidGetPinValue(SLAVE_SELECT_PIN , HIGH);
+  MGPIO_voidSetPinValue(SLAVE_SELECT_PIN , HIGH);
 }
 
 /* Send-Receive Asynch function */
@@ -67,7 +67,7 @@ void MSPI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*Copy_CallBack) (u
   /* MSPI_CallBack  assignment */
   MSPI_CallBack = Copy_CallBack;
   /* set slave select to LOW */
-  MGPIO_voidGetPinValue(SLAVE_SELECT_PIN , LOW);
+  MGPIO_voidSetPinValue(SLAVE_SELECT_PIN , LOW);
   /* Send data*/
   SPI1->DR = Copy_u8DataToSend;
 }

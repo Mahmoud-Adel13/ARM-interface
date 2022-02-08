@@ -9,8 +9,8 @@
 
 /* Functions prototypes */
 void MSPI1_voidInit(void);
-void MSOI1_voidSendReceiveSynch(u8 Copy_u8DataToSend , u8 *Copy_u8VariableToReceive);
-void MSOI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*CallBack) (u8));
+void MSPI1_voidSendReceiveSynch(u8 Copy_u8DataToSend , u8 *Copy_u8VariableToReceive);
+void MSPI1_voidSendReceiveAsynch(u8 Copy_u8DataToSend , void (*CallBack) (u8));
 
 
 #endif

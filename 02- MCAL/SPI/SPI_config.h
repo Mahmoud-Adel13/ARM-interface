@@ -14,8 +14,7 @@
 
 /* Data frame format */
 /* Options:   8_BITS  or  16_BITS   */
-#define   8_BITS            0
-#define   16_BITS           1
+#define   DATA_FRAME             EIGHT_BITS
 
 /* Data order: LSB or MSB first */
 /* Options:  MSB, LSB           */
@@ -23,7 +22,7 @@
 
 /* Master or slave */
 /* Options:  Master or slave  */
-#define   MASTER_SELECT       Master
+#define   MASTER_SELECT       MASTER
 
 /* Baud rate prescaller */
 /* Options:    APB2_DIV_2,  APB2_DIV_4, APB2_DIV_8, APB2_DIV_16,
@@ -32,7 +31,7 @@
 
 /* Clock polarity */
 /* Options:  RISING_EDGE  or  FALLING_EDGE  */
-#define   CLOCK_POL           RISING_EDGE
+#define   CLOCK_POL           FALLING_EDGE
 
 /* RX mode */
 /* Options:  SEND_RECV  or  SEND_ONLY */
@@ -47,7 +46,7 @@
 
 /* Clock phase */
 /* Options:  READ_WRITE   or  WRITE_READ  */
-#define   CLOCK_PHASE         READ_WRITE
+#define   CLOCK_PHASE         WRITE_READ
 
 
 

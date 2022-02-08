@@ -7,6 +7,9 @@
 #ifndef SPI_PRIVATE_H
 #define SPI_PRIVATE_H
 
+/* Privatae CallBack */
+static void (*MSPI_CallBack)(u8);
+
 /**   registers definitions   **/
 typedef struct
 {
@@ -26,8 +29,8 @@ typedef struct
 
 /**   configuration options   **/
 /* Data frame format */
-#define   DATA_FRAME             8_BITS
-#define   DATA_FRAME             16_BITS
+#define   EIGHT_BITS          0
+#define   SIXTEEN_BITS        1
 
 /* Data order: LSB or MSB first */
 #define   MSB         0
