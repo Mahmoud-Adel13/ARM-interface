@@ -43,7 +43,7 @@ void HTFT_voidInit(void)
   voidWriteCommand(0x29);
 }
 
-void HTFT_voidDisplayImage(const u16 *Copy_16Image)
+void HTFT_voidDisplayImage(const u16 *Copy_u16Image)
 {
   u16 counter;
   /* Set X Address*/
@@ -71,9 +71,80 @@ void HTFT_voidDisplayImage(const u16 *Copy_16Image)
   for(counter = 0 ; counter <= 20480 ; counter++)
   {
     /* Write high byte */
-    voidWriteData(Copy_16Image[counter] >> 8);
+    voidWriteData(Copy_u16Image[counter] >> 8);
     /* Write low byte */
-    voidWriteData(Copy_16Image[counter] & 0xff);
+    voidWriteData(Copy_u16Image[counter] & 0xff);
+  }
+}
+
+void HTFT_voidFillColor(u16 Copy_u16Color)
+{
+  u16 counter;
+  /* Set X Address*/
+  voidWriteCommand(0x2A);
+  /* Start point */
+  voidWriteData(0);
+  voidWriteData(0);
+  /* End point */
+  voidWriteData(0);
+  voidWriteData(127);
+
+  /* Set Y Address */
+  voidWriteCommand(0x2B);
+  /* Start point */
+  voidWriteData(0);
+  voidWriteData(0);
+  /* End point */
+  voidWriteData(0);
+  voidWriteData(159);
+
+  /* RAM write */
+  voidWriteCommand(0x2C);
+
+
+  for(counter = 0 ; counter <= 20480 ; counter++)
+  {
+    /* Write high byte */
+    voidWriteData(Copy_u16Color >> 8);
+    /* Write low byte */
+    voidWriteData(Copy_u16Color & 0xff);
+  }
+}
+
+void HTFT_voidDrawRect(u8 x1, u8 x2, u8 y1, u8 y2 , u16 Copy_u16Color)
+{
+  u16 counter;
+
+  u16 size = (x2 - x1) * (y2 -y1);
+
+  /* Set X Address*/
+  voidWriteCommand(0x2A);
+  /* Start point */
+  voidWriteData(0);
+  voidWriteData(x1);
+  /* End point */
+  voidWriteData(0);
+  voidWriteData(x2);
+
+  /* Set Y Address */
+  voidWriteCommand(0x2B);
+  /* Start point */
+  voidWriteData(0);
+  voidWriteData(y1);
+  /* End point */
+  voidWriteData(0);
+  voidWriteData(y2);
+
+  /* RAM write */
+  voidWriteCommand(0x2C);
+
+
+  for(counter = 0 ; counter <= size ; counter++)
+  {
+    /* Write high byte */
+    voidWriteData(Copy_u16Color >> 8);
+    /* Write low byte */
+    voidWriteData(Copy_u16Color & 0xff);
   }
 }
 
