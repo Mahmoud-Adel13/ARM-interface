@@ -60,7 +60,27 @@ void MUSART_voidTransmit(u8 arr[])
 
 u8   MUSART_u8Receive(void)
 {
-  /* Wait till reception is completed and ready to read */
-  while(GET_BIT(USART1->SR , 5) == 0);
-  return (0xFF & (USART1->DR));
+  /* Local variable definitions */
+  u16  Local_u16Timeout = 0;
+  u8   Local_u8ReceivedData = 0;
+
+  /* Check if reception is completed or timeout happens */
+  while(GET_BIT(USART1->SR , 5) == 0)
+  {
+    Local_u16Timeout++;
+
+    if(Local_u16Timeout == 10000)                                               /* This is built to prevent waiting for ever in this while loop */
+    {
+      Local_u8ReceivedData = 255;                                               /* when received 255 then its a timeout */
+      break;
+    }
+  }
+
+  /* when no timeout happens and complete receiving, read and return data */
+  if (Local_u16Timeout != 255)
+  {
+    Local_u8ReceivedData = (0xFF & (USART1->DR));
+  }
+
+  return (Local_u8ReceivedData);
 }

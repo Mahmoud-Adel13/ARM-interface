@@ -36,9 +36,9 @@ typedef struct
 
 /* Stop bits */
 #define   ONE_BIT           0b00
-#define   HALF_BIT         0b01
+#define   HALF_BIT          0b01
 #define   TWO_BITS          0b10
-#define   ONE_HALF_BITS        0b11
+#define   ONE_HALF_BITS     0b11
 
 /* Asynchronous clock parity */
 #define   RISING_EDGE      0

@@ -37,6 +37,6 @@
 
 /* Baud rate */
 /* Options:   BAUD_9600 , BAUD_115200 */
-#define   BAUD_RATE         BAUD_9600
+#define   BAUD_RATE         BAUD_115200
 
 #endif
