@@ -43,7 +43,7 @@ void MSTk_voidSetBusyWait(u32 Copy_u32Ticks)
   CLR_BIT(STK->CTRL , 1);
   /* SysTick enable */
   SET_BIT(STK->CTRL , 0);
-  while (Copy_u32Ticks > 0) {}                                                  /* uP hold dela time */
+  while (GET_BIT(STK->CTRL,16) == 0);                                           /* uP hold dela time */
 }
 
 void MSTK_voidSetIntervalSignal(u32 Copy_u32Ticks , void (*Copy_ptr) (void))
