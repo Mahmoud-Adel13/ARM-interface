@@ -12,7 +12,7 @@
 
 /* Data width */
 /* Options:  8_BITS   or  9_BITS   */
-#define     Data_WIDTH        EIGHT_BITS
+#define     DATA_WIDTH        EIGHT_BITS
 
 /* Stop bits */
 /* Options:   1_BIT   , 0.5_BIT  ,  2_BITS  or  1.5_BITS  */

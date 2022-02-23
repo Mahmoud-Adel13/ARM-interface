@@ -21,7 +21,7 @@ void MUSART_voidInit(void)
   USART1->CR2 = 0x0000;
   /**       Configuration options       **/
   /* Data width */
-  USART1->CR1 |= (Data_WIDTH << 12);
+  USART1->CR1 |= (DATA_WIDTH << 12);
   /* Stop bits */
   USART1->CR2 |= (STOP_BITS << 12);
   /* Parity check */

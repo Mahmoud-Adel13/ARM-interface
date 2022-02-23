@@ -57,6 +57,7 @@ void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)       
     }
     /*Input pull or push configuration */
     if (Copy_u8Mode == INPUT_PUSHPULL_PIN)
+    {
       if (INPUT_PUSHPULL == INPUT_PULL)
       {
         CLR_BIT(GPIOB_ODR , Copy_u8Pin);
@@ -65,6 +66,7 @@ void MGPIO_voidSetPinDir(u8 Copy_u8Port , u8 Copy_u8Pin , u8 Copy_u8Mode)       
       {
         SET_BIT(GPIOB_ODR , Copy_u8Pin);
       }
+    }
   }
 
   /*For Port C */
