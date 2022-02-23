@@ -5,8 +5,9 @@
 /*******************************************************************************/
 
 /* Inclusion part */
-#include "BIT_MATH.h"
 #include "STD_TYPES.h"
+#include "BIT_MATH.h"
+
 
 #include "USART_interface.h"
 #include "USART_private.h"
@@ -38,21 +39,22 @@ void MUSART_voidInit(void)
   USART1->BRR = BAUD_RATE;
 
   /**   USART enable    **/
-  SET_BIT(USART1->CR1 , 3);                                                     /* TX enable */
   SET_BIT(USART1->CR1 , 2);                                                     /* RX enable */
+  SET_BIT(USART1->CR1 , 3);                                                     /* TX enable */
+
   SET_BIT(USART1->CR1 , 13);                                                    /* USART1 enable */
 
   /* Clear status register */
-  USART1->SR = 0x0000;
+  USART1->SR = 0;
 }
 
-void MUSART_voidTransmit(u8 arr[])
+void MUSART_voidTransmit(u8 *arr)
 {
   u8 i =0;
   /* check for items in array */
-  while (arr[i] == '\0')
+  while (arr[i] != '\0')
   {
-    USART1->DR = arr[i];
+    (USART1->DR) = arr[i];
     while (GET_BIT(USART1->SR , 6) == 0);                                        /* Wait till TC = 1 */
     i++;
   }
@@ -63,24 +65,23 @@ u8   MUSART_u8Receive(void)
   /* Local variable definitions */
   u16  Local_u16Timeout = 0;
   u8   Local_u8ReceivedData = 0;
+  //CLR_BIT(USART1->SR , 5);
 
   /* Check if reception is completed or timeout happens */
-  while(GET_BIT(USART1->SR , 5) == 0)
+  while((GET_BIT(USART1->SR , 5) == 0) && (Local_u16Timeout < 10000))
   {
     Local_u16Timeout++;
-
-    if(Local_u16Timeout == 10000)                                               /* This is built to prevent waiting for ever in this while loop */
-    {
-      Local_u8ReceivedData = 255;                                               /* when received 255 then its a timeout */
-      break;
-    }
   }
 
   /* when no timeout happens and complete receiving, read and return data */
-  if (Local_u16Timeout != 255)
+  if(Local_u16Timeout == 10000)                                                 /* This is built to prevent waiting for ever in this while loop */
   {
-    Local_u8ReceivedData = (0xFF & (USART1->DR));
+    Local_u8ReceivedData = 255;                                             /* when received 255 then its a timeout */
+  }
+  else
+  {
+		Local_u8ReceivedData = USART1->DR;
   }
 
-  return (Local_u8ReceivedData);
+  return ((Local_u8ReceivedData) & 0xFF);
 }

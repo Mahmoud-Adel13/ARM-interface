@@ -5,8 +5,8 @@
 /*******************************************************************************/
 
 /* Inclusion part */
-#include "BIT_MATH.h"
 #include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
@@ -22,17 +22,17 @@ void main(void)
   MRCC_voidEnableClock(EN_GPIO_PORTA);                                          /* GPIOA clock enable */
   MRCC_voidEnableClock(EN_USART1);                                              /* GPIOA clock enable */
   /* Pins directions */
-  MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_9 , OUTPUT_GP_PUSHPULL_PIN_50MHZ);  /* A9 = TX : output 50 MHZ */
+  MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_9 , OUTPUT_AF_PUSHPULL_PIN_50MHZ);  /* A9 = TX : output 50 MHZ */
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_10 , INPUT_FLOATING_PIN);           /* A10 = RX : input floating */
   MGPIO_voidSetPinDir(GPIO_PORTA , GPIO_PIN_0 , OUTPUT_GP_PUSHPULL_PIN_2MHZ);   /* A0 as output 2 MHZ */
 
   /* USART initialization */
   MUSART_voidInit();
 
-  u8 x;
+  u8 x = 0;
   while (1)
   {
-    MUSART_voidTransmit("97");
+    MUSART_voidTransmit("GIF");
     x = MUSART_u8Receive();
     if (x == '5')
     {
@@ -42,6 +42,5 @@ void main(void)
     {
       MGPIO_voidSetPinValue(GPIO_PORTA , GPIO_PIN_0 , LOW);
     }
-
   }
 }
